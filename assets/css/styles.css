@@ -94,3 +94,48 @@ footer{
   .btn{width:100%;text-align:center}
   .lead{font-size:16px;line-height:1.6}
 }
+
+/* --- MOBILE/GENERAL FIXES (override) ----------------------------------- */
+
+/* 1) True center + safe scaling for the logo */
+header{ padding:24px 0 12px; }
+.logo{
+  display:block;
+  margin-inline:auto;      /* centers horizontally */
+  max-width:90vw;          /* never wider than screen */
+  width:420px;             /* desktop target size */
+  height:auto;
+}
+
+/* 2) Force pure-white background everywhere (remove any prior gradient/halo) */
+html, body { background:#ffffff !important; }
+*::before, *::after {
+  background-image:none !important;   /* nuke any leftover gradient backgrounds */
+}
+
+/* 3) Contain the contact card on phones; prevent horizontal scroll */
+.section{ padding:28px 16px 40px; }
+.card{
+  width:min(720px, 100%);
+  margin:0 auto;
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  border:1px solid #e8efe9;
+  border-radius:18px;
+}
+form{ max-width:640px; margin:12px auto 0; display:grid; gap:10px; grid-template-columns:1fr 1fr; }
+form input, form textarea, form button{
+  min-width:0;                        /* prevents input overflow on iOS */
+  box-sizing:border-box;
+}
+@media (max-width:600px){
+  .logo{ max-width:84vw; width:auto; }
+  .section{ padding:24px 12px 36px; }
+  .card{ box-shadow:none; }
+  form{ grid-template-columns:1fr; }  /* stack fields */
+  .btn{ width:100%; text-align:center; }
+}
+
+/* 4) Eliminate any accidental horizontal scroll */
+html, body { overflow-x:hidden; }
+img { max-width:100%; height:auto; display:block; }
+
