@@ -1,0 +1,7 @@
+:root{--green:#2f7d5a;--gold:#ffd76a}
+*{box-sizing:border-box}body{margin:0;font:16px/1.5 system-ui,Segoe UI,Roboto;color:#222}
+.wrap{max-width:960px;margin:0 auto;padding:16px}
+header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{height:48px}
+nav a{margin-left:16px;color:#2f7d5a;text-decoration:none}
+h1{color:var(--green)}
