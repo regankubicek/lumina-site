@@ -4,133 +4,100 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Lumina Whole Health</title>
-  <meta name="description" content="Holistic, evidence-informed mental health care in a warm, welcoming setting." />
+  <meta name="description" content="Holistic, evidence-informed mental health care in a calm, welcoming environment." />
   <style>
     :root{
       --ink:#1c2320; --muted:#53635a;
-      --green:#2f7d5a; --green-2:#3e8f6a; --gold:#ffd76a;
-      --bg1:#f7fbf9; --bg2:#eef6f2; --bg3:#ffffff;
+      --green:#2f7d5a; --green-2:#3e8f6a;
       --radius:18px; --shadow:0 12px 30px rgba(0,0,0,.06);
     }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0}
-    body{
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
-      color:var(--ink);
-      background:
-        radial-gradient(1200px 600px at 20% -10%, var(--bg2), transparent),
-        radial-gradient(1000px 500px at 110% 0%, #fff6e0, transparent),
-        linear-gradient(180deg,var(--bg1),#fff);
-    }
-
-    /* Header */
+    html,body{margin:0;padding:0;background:#ffffff;color:var(--ink);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;}
     header{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter: blur(10px);
-      background:rgba(255,255,255,.6);
+      text-align:center;
+      padding:60px 20px 40px;
       border-bottom:1px solid rgba(0,0,0,.05);
-    }
-    .wrap{max-width:1100px;margin:0 auto;padding:18px 20px}
-
-    /* Hero with centered logo */
-    .hero{
-      text-align:center; padding:56px 20px 32px;
     }
     .logo{
-      width:min(260px,60vw); height:auto; display:block; margin:0 auto 14px;
-      filter: drop-shadow(0 3px 10px rgba(0,0,0,.08));
+      width:min(400px,85vw);
+      height:auto;
+      display:block;
+      margin:0 auto;
+      filter:drop-shadow(0 3px 8px rgba(0,0,0,.08));
     }
-    .name{font-weight:700; font-size:20px; color:var(--green); letter-spacing:.4px; margin:0}
-    .tag{color:var(--muted); margin:6px 0 0}
-
-    /* Mission full-width ribbon */
     .mission{
-      margin:28px 0 10px; padding:42px 20px;
-      background:linear-gradient(180deg,#ffffff, #f6faf7);
-      border-top:1px solid rgba(0,0,0,.05);
-      border-bottom:1px solid rgba(0,0,0,.05);
-    }
-    .mission .inner{
-      max-width:900px; margin:0 auto; text-align:center;
+      max-width:900px;
+      margin:50px auto;
+      padding:0 20px;
+      text-align:center;
     }
     h1{
-      margin:0 0 10px; color:var(--green);
-      font-size:clamp(28px,4.5vw,44px); line-height:1.15;
+      color:var(--green);
+      font-size:clamp(28px,4vw,44px);
+      line-height:1.15;
+      margin:0 0 10px;
     }
     .lead{
-      margin:0 auto; color:var(--muted);
+      color:var(--muted);
       font-size:clamp(16px,2.2vw,19px);
-      max-width:850px;
+      margin:0 auto;
+      max-width:800px;
     }
-
-    /* Gentle section with curved card */
-    .section{
-      padding:36px 20px 50px;
-    }
+    .section{padding:40px 20px;}
     .card{
-      max-width:980px; margin:0 auto; background:#fff; border-radius:28px;
-      box-shadow:var(--shadow); padding:28px 24px;
+      max-width:980px;
+      margin:0 auto;
+      background:#fff;
+      border-radius:28px;
+      box-shadow:var(--shadow);
+      padding:32px 26px;
     }
-    .card h2{margin:0 0 6px; color:var(--green)}
-    .card p{margin:8px 0; color:var(--muted)}
+    .card h2{margin:0 0 6px;color:var(--green)}
+    .card p{margin:8px 0;color:var(--muted)}
     .cta{
-      margin-top:16px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
+      margin-top:16px;
+      display:flex;
+      gap:12px;
+      justify-content:center;
+      flex-wrap:wrap;
     }
     .btn{
-      display:inline-block; padding:12px 18px; border-radius:999px; text-decoration:none;
-      background:var(--green); color:#fff; transition:.2s transform ease,.2s background ease;
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:999px;
+      text-decoration:none;
+      background:var(--green);
+      color:#fff;
+      transition:.2s transform ease,.2s background ease;
     }
-    .btn:hover{transform:translateY(-1px); background:var(--green-2)}
-    .ghost{
-      background:#eef6f2; color:var(--green);
+    .btn:hover{transform:translateY(-1px);background:var(--green-2)}
+    footer{
+      text-align:center;
+      color:#5b6a62;
+      padding:60px 20px 70px;
     }
-
-    footer{padding:40px 20px 70px; text-align:center; color:#5b6a62}
   </style>
 </head>
 <body>
-  <!-- Header (kept minimal; logo is centered below) -->
-  <header>
-    <div class="wrap" style="display:flex;justify-content:flex-end;gap:10px">
-      <a class="btn ghost" href="#contact">Contact</a>
-    </div>
-  </header>
 
-  <!-- HERO: centered logo + brand -->
-  <div class="hero">
-    <!-- If your path differs, change src below -->
+  <!-- Header with large logo -->
+  <header>
     <img class="logo" src="assets/img/logo.png" alt="Lumina Whole Health logo"
          onerror="this.style.display='none';document.getElementById('fallback').style.display='block'">
-    <div id="fallback" style="display:none">
-      <p class="name">Lumina Whole Health</p>
-  </div>
+    <div id="fallback" style="display:none;font-weight:700;font-size:28px;color:var(--green);">Lumina Whole Health</div>
+  </header>
 
-  <!-- MISSION: full-width -->
+  <!-- Mission section full width -->
   <section class="mission">
-    <div class="inner">
-      <h1>A holistic approach to mental health</h1>
-      <p class="lead">
-        We care for the whole person—mind, body, and environment—so you can feel calm, clear, and connected.
-        Our work blends proven therapies with nervous-system education, lifestyle supports, and practical tools that fit real life.
-        We listen deeply, align care with your values, and illuminate a path that’s safe, effective, and sustainable.
-      </p>
-    </div>
+    <h1>A holistic approach to mental health</h1>
+    <p class="lead">
+      We care for the whole person—mind, body, and environment—so you can feel calm, clear, and connected.
+      Our practice blends evidence-informed therapies with lifestyle and nervous-system support to build lasting wellbeing.
+    </p>
   </section>
 
-  <!-- Friendly details (single soft card, not blocky) -->
-  <section class="section">
-    <article class="card">
-      <h2>What you can expect</h2>
-      <p>Warm, judgment-free sessions. Thoughtful intake. Clear next steps after each visit.</p>
-      <p>Personalized plans may integrate CBT and other modalities with sleep, stress, and routine support.</p>
-      <div class="cta">
-        <a class="btn" href="#contact">Book a consult</a>
-        <a class="btn ghost" href="#learn">Learn more</a>
-      </div>
-    </article>
-  </section>
-
-  <!-- Contact anchor (simple placeholder) -->
+  <!-- Contact / CTA -->
   <section id="contact" class="section">
     <article class="card" style="text-align:center">
       <h2>Start the conversation</h2>
