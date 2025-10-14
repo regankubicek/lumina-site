@@ -4,165 +4,154 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Lumina Whole Health</title>
-  <meta name="description" content="Lumina Whole Health offers a holistic, evidence-informed approach to mental wellness in a welcoming, human-centered environment." />
+  <meta name="description" content="Holistic, evidence-informed mental health care in a warm, welcoming setting." />
   <style>
     :root{
-      --bg1:#f7fbf9; --bg2:#eef6f2;
-      --green:#2f7d5a; --green-2:#3e8f6a;
-      --gold:#ffd76a; --ink:#1b1b1b; --muted:#5c6b62;
-      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.06);
+      --ink:#1c2320; --muted:#53635a;
+      --green:#2f7d5a; --green-2:#3e8f6a; --gold:#ffd76a;
+      --bg1:#f7fbf9; --bg2:#eef6f2; --bg3:#ffffff;
+      --radius:18px; --shadow:0 12px 30px rgba(0,0,0,.06);
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0}
     body{
-      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
       color:var(--ink);
-      background: radial-gradient(1200px 800px at 20% -10%, var(--bg2), transparent),
-                  radial-gradient(1000px 600px at 120% 0%, #fef9ee, transparent),
-                  linear-gradient(180deg,var(--bg1),#ffffff);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, var(--bg2), transparent),
+        radial-gradient(1000px 500px at 110% 0%, #fff6e0, transparent),
+        linear-gradient(180deg,var(--bg1),#fff);
     }
-    .container{max-width:1040px;margin:0 auto;padding:24px}
+
+    /* Header */
     header{
       position:sticky; top:0; z-index:10;
-      background:rgba(255,255,255,.7); backdrop-filter: blur(8px);
+      backdrop-filter: blur(10px);
+      background:rgba(255,255,255,.6);
       border-bottom:1px solid rgba(0,0,0,.05);
     }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-      padding:10px 0;
+    .wrap{max-width:1100px;margin:0 auto;padding:18px 20px}
+
+    /* Hero with centered logo */
+    .hero{
+      text-align:center; padding:56px 20px 32px;
     }
-    .brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit}
     .logo{
-      width:160px; height:auto; display:block; object-fit:contain;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,.08));
+      width:min(260px,60vw); height:auto; display:block; margin:0 auto 14px;
+      filter: drop-shadow(0 3px 10px rgba(0,0,0,.08));
     }
-    .fallback{
-      display:none; font-weight:700; font-size:22px; color:var(--green);
-      letter-spacing:.5px;
+    .name{font-weight:700; font-size:20px; color:var(--green); letter-spacing:.4px; margin:0}
+    .tag{color:var(--muted); margin:6px 0 0}
+
+    /* Mission full-width ribbon */
+    .mission{
+      margin:28px 0 10px; padding:42px 20px;
+      background:linear-gradient(180deg,#ffffff, #f6faf7);
+      border-top:1px solid rgba(0,0,0,.05);
+      border-bottom:1px solid rgba(0,0,0,.05);
+    }
+    .mission .inner{
+      max-width:900px; margin:0 auto; text-align:center;
+    }
+    h1{
+      margin:0 0 10px; color:var(--green);
+      font-size:clamp(28px,4.5vw,44px); line-height:1.15;
+    }
+    .lead{
+      margin:0 auto; color:var(--muted);
+      font-size:clamp(16px,2.2vw,19px);
+      max-width:850px;
+    }
+
+    /* Gentle section with curved card */
+    .section{
+      padding:36px 20px 50px;
+    }
+    .card{
+      max-width:980px; margin:0 auto; background:#fff; border-radius:28px;
+      box-shadow:var(--shadow); padding:28px 24px;
+    }
+    .card h2{margin:0 0 6px; color:var(--green)}
+    .card p{margin:8px 0; color:var(--muted)}
+    .cta{
+      margin-top:16px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;
     }
     .btn{
       display:inline-block; padding:12px 18px; border-radius:999px; text-decoration:none;
-      background:var(--green); color:#fff; box-shadow:var(--shadow);
-      transition:.2s transform ease, .2s box-shadow ease, .2s background ease;
+      background:var(--green); color:#fff; transition:.2s transform ease,.2s background ease;
     }
     .btn:hover{transform:translateY(-1px); background:var(--green-2)}
-    .hero{padding:64px 0 32px}
-    .halo{
-      position:relative; isolation:isolate;
-      border-radius:var(--radius);
-      background:#fff; box-shadow:var(--shadow); padding:36px;
-      overflow:hidden;
+    .ghost{
+      background:#eef6f2; color:var(--green);
     }
-    .halo::before{
-      content:""; position:absolute; inset:-40px -40px auto auto; width:280px; height:280px;
-      background:radial-gradient(closest-side, rgba(255,215,106,.55), rgba(255,215,106,0));
-      border-radius:50%; filter: blur(6px); opacity:.9; z-index:-1; transform:translate(10px,-10px);
-      animation:float 6s ease-in-out infinite alternate;
-    }
-    @keyframes float{to{transform:translate(0px,-2px) scale(1.03); opacity:.95}}
-    h1{margin:0 0 10px; font-size: clamp(28px, 4vw, 44px); line-height:1.15; color:var(--green)}
-    .lead{margin:0 0 18px; color:var(--muted); font-size:clamp(16px,2.2vw,18px)}
-    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px; margin-top:28px}
-    .card{
-      grid-column: span 12;
-      background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:22px;
-    }
-    @media (min-width:820px){
-      .card{grid-column: span 4}
-      .mission{grid-column: span 8}
-    }
-    .card h3{margin:0 0 8px; font-size:18px; color:var(--green)}
-    .muted{color:var(--muted)}
-    footer{padding:32px 0 60px; color:#566; text-align:center}
-    .pill{display:inline-block; padding:6px 12px; border-radius:999px; background:#eef6f2; color:#3a6; font-size:12px}
+
+    footer{padding:40px 20px 70px; text-align:center; color:#5b6a62}
   </style>
 </head>
 <body>
-  <!-- Header -->
+  <!-- Header (kept minimal; logo is centered below) -->
   <header>
-    <div class="container nav">
-      <a class="brand" href="#">
-        <!-- LOGO: will hide if missing and show text fallback -->
-        <img id="logo" class="logo" src="assets/img/logo.png" alt="Lumina Whole Health logo"
-             onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
-        <span id="logo-fallback" class="fallback">Lumina Whole Health</span>
-      </a>
-      <a class="btn" href="#contact">Book a consult</a>
+    <div class="wrap" style="display:flex;justify-content:flex-end;gap:10px">
+      <a class="btn ghost" href="#contact">Contact</a>
     </div>
   </header>
 
-  <!-- Hero / Mission -->
-  <main class="container hero">
-    <section class="halo">
-      <h1>Natural wellness, made modern.</h1>
-      <p class="lead">We combine compassionate care, evidence-informed practices, and whole-person perspective to help you feel calm, clear, and connected.</p>
-      <div class="grid">
-        <!-- Mission statement -->
-        <article class="card mission">
-          <h3>Our Mission</h3>
-          <p class="muted">
-            At <strong>Lumina Whole Health</strong>, we take a holistic approach to mental health—supporting mind, body, and environment. 
-            We blend proven therapies with lifestyle guidance, nervous-system education, and practical tools that fit real life.
-            Our goal is simple: help you build durable wellbeing, not just temporary relief.
-          </p>
-          <p class="muted">
-            Every person is different. We listen deeply, align care with your values, and illuminate a path that feels safe, effective, and sustainable.
-          </p>
-          <div style="margin-top:10px">
-            <span class="pill">Evidence-informed</span>
-            <span class="pill" style="margin-left:8px">Whole-person care</span>
-            <span class="pill" style="margin-left:8px">Warm & welcoming</span>
-          </div>
-        </article>
+  <!-- HERO: centered logo + brand -->
+  <div class="hero">
+    <!-- If your path differs, change src below -->
+    <img class="logo" src="assets/img/logo.png" alt="Lumina Whole Health logo"
+         onerror="this.style.display='none';document.getElementById('fallback').style.display='block'">
+    <div id="fallback" style="display:none">
+      <p class="name">Lumina Whole Health</p>
+    </div>
+    <p class="tag">Natural wellness, made modern</p>
+  </div>
 
-        <!-- Friendly touch cards -->
-        <article class="card">
-          <h3>What to Expect</h3>
-          <p class="muted">Quiet, judgment-free space; thoughtful intake; clear next steps. You’ll leave each session with practical, doable tools.</p>
-        </article>
-        <article class="card">
-          <h3>How We Work</h3>
-          <p class="muted">Personalized plans that may integrate CBT and other modalities with sleep, stress, and routine support.</p>
-        </article>
-        <article class="card">
-          <h3>Who We Help</h3>
-          <p class="muted">Adults and teens seeking calmer nervous systems, stronger boundaries, and steadier daily life.</p>
-        </article>
+  <!-- MISSION: full-width -->
+  <section class="mission">
+    <div class="inner">
+      <h1>A holistic approach to mental health</h1>
+      <p class="lead">
+        We care for the whole person—mind, body, and environment—so you can feel calm, clear, and connected.
+        Our work blends proven therapies with nervous-system education, lifestyle supports, and practical tools that fit real life.
+        We listen deeply, align care with your values, and illuminate a path that’s safe, effective, and sustainable.
+      </p>
+    </div>
+  </section>
+
+  <!-- Friendly details (single soft card, not blocky) -->
+  <section class="section">
+    <article class="card">
+      <h2>What you can expect</h2>
+      <p>Warm, judgment-free sessions. Thoughtful intake. Clear next steps after each visit.</p>
+      <p>Personalized plans may integrate CBT and other modalities with sleep, stress, and routine support.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Book a consult</a>
+        <a class="btn ghost" href="#learn">Learn more</a>
       </div>
-    </section>
+    </article>
+  </section>
 
-    <!-- Contact / CTA -->
-    <section id="contact" class="grid" style="margin-top:36px">
-      <article class="card" style="grid-column: span 12">
-        <h3>Start with a friendly consult</h3>
-        <p class="muted">Tell us what you’re looking for—no pressure, just clarity.</p>
-        <!-- You can wire this to Formspree or another form later -->
-        <form action="#" method="post" onsubmit="alert('Thanks! Replace this with your form service when ready.'); return false;">
-          <div style="display:grid; gap:10px; grid-template-columns:repeat(12,1fr);">
-            <input name="name" placeholder="Name" required style="grid-column:span 6; padding:12px; border-radius:10px; border:1px solid #d8e4dc">
-            <input name="email" type="email" placeholder="Email" required style="grid-column:span 6; padding:12px; border-radius:10px; border:1px solid #d8e4dc">
-            <textarea name="message" placeholder="How can we help?" rows="4" required style="grid-column:span 12; padding:12px; border-radius:10px; border:1px solid #d8e4dc"></textarea>
-          </div>
-          <div style="margin-top:12px">
-            <button class="btn" type="submit">Send</button>
-          </div>
-        </form>
-      </article>
-    </section>
-  </main>
+  <!-- Contact anchor (simple placeholder) -->
+  <section id="contact" class="section">
+    <article class="card" style="text-align:center">
+      <h2>Start the conversation</h2>
+      <p>Tell us what you’re looking for—no pressure, just clarity.</p>
+      <form action="#" method="post" onsubmit="alert('Thanks! Replace this with your form service when ready.'); return false;"
+            style="max-width:720px;margin:12px auto 0;display:grid;gap:10px;grid-template-columns:1fr 1fr;">
+        <input name="name" placeholder="Name" required style="padding:12px;border-radius:12px;border:1px solid #d8e4dc">
+        <input name="email" type="email" placeholder="Email" required style="padding:12px;border-radius:12px;border:1px solid #d8e4dc">
+        <textarea name="message" placeholder="How can we help?" rows="4" required
+                  style="grid-column:1/-1;padding:12px;border-radius:12px;border:1px solid #d8e4dc"></textarea>
+        <button class="btn" type="submit" style="grid-column:1/-1;justify-self:center">Send</button>
+      </form>
+    </article>
+  </section>
 
   <footer>
-    <div class="container">
-      <small>© <span id="y"></span> Lumina Whole Health • All rights reserved</small>
-    </div>
+    <small>© <span id="y"></span> Lumina Whole Health • All rights reserved</small>
   </footer>
 
-  <script>
-    // Year + gentle focus style for keyboard users
-    document.getElementById('y').textContent = new Date().getFullYear();
-    document.addEventListener('keydown', e=>{
-      if(e.key==='Tab') document.body.classList.add('show-focus');
-    });
-  </script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
