@@ -4,17 +4,165 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Lumina Whole Health</title>
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <meta name="description" content="Lumina Whole Health offers a holistic, evidence-informed approach to mental wellness in a welcoming, human-centered environment." />
+  <style>
+    :root{
+      --bg1:#f7fbf9; --bg2:#eef6f2;
+      --green:#2f7d5a; --green-2:#3e8f6a;
+      --gold:#ffd76a; --ink:#1b1b1b; --muted:#5c6b62;
+      --radius:16px; --shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;
+      color:var(--ink);
+      background: radial-gradient(1200px 800px at 20% -10%, var(--bg2), transparent),
+                  radial-gradient(1000px 600px at 120% 0%, #fef9ee, transparent),
+                  linear-gradient(180deg,var(--bg1),#ffffff);
+    }
+    .container{max-width:1040px;margin:0 auto;padding:24px}
+    header{
+      position:sticky; top:0; z-index:10;
+      background:rgba(255,255,255,.7); backdrop-filter: blur(8px);
+      border-bottom:1px solid rgba(0,0,0,.05);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      padding:10px 0;
+    }
+    .brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit}
+    .logo{
+      width:160px; height:auto; display:block; object-fit:contain;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,.08));
+    }
+    .fallback{
+      display:none; font-weight:700; font-size:22px; color:var(--green);
+      letter-spacing:.5px;
+    }
+    .btn{
+      display:inline-block; padding:12px 18px; border-radius:999px; text-decoration:none;
+      background:var(--green); color:#fff; box-shadow:var(--shadow);
+      transition:.2s transform ease, .2s box-shadow ease, .2s background ease;
+    }
+    .btn:hover{transform:translateY(-1px); background:var(--green-2)}
+    .hero{padding:64px 0 32px}
+    .halo{
+      position:relative; isolation:isolate;
+      border-radius:var(--radius);
+      background:#fff; box-shadow:var(--shadow); padding:36px;
+      overflow:hidden;
+    }
+    .halo::before{
+      content:""; position:absolute; inset:-40px -40px auto auto; width:280px; height:280px;
+      background:radial-gradient(closest-side, rgba(255,215,106,.55), rgba(255,215,106,0));
+      border-radius:50%; filter: blur(6px); opacity:.9; z-index:-1; transform:translate(10px,-10px);
+      animation:float 6s ease-in-out infinite alternate;
+    }
+    @keyframes float{to{transform:translate(0px,-2px) scale(1.03); opacity:.95}}
+    h1{margin:0 0 10px; font-size: clamp(28px, 4vw, 44px); line-height:1.15; color:var(--green)}
+    .lead{margin:0 0 18px; color:var(--muted); font-size:clamp(16px,2.2vw,18px)}
+    .grid{display:grid; grid-template-columns:repeat(12,1fr); gap:18px; margin-top:28px}
+    .card{
+      grid-column: span 12;
+      background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:22px;
+    }
+    @media (min-width:820px){
+      .card{grid-column: span 4}
+      .mission{grid-column: span 8}
+    }
+    .card h3{margin:0 0 8px; font-size:18px; color:var(--green)}
+    .muted{color:var(--muted)}
+    footer{padding:32px 0 60px; color:#566; text-align:center}
+    .pill{display:inline-block; padding:6px 12px; border-radius:999px; background:#eef6f2; color:#3a6; font-size:12px}
+  </style>
 </head>
 <body>
-  <header class="wrap">
-    <img src="assets/img/logo.svg" alt="Lumina Whole Health" class="logo" />
-    <nav><a href="#services">Services</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#">
+        <!-- LOGO: will hide if missing and show text fallback -->
+        <img id="logo" class="logo" src="assets/img/logo.png" alt="Lumina Whole Health logo"
+             onerror="this.style.display='none'; document.getElementById('logo-fallback').style.display='block';">
+        <span id="logo-fallback" class="fallback">Lumina Whole Health</span>
+      </a>
+      <a class="btn" href="#contact">Book a consult</a>
+    </div>
   </header>
-  <main class="wrap">
-    <h1>Natural wellness, made modern.</h1>
-    <p>Evidence-based care with a gentle, human touch.</p>
+
+  <!-- Hero / Mission -->
+  <main class="container hero">
+    <section class="halo">
+      <h1>Natural wellness, made modern.</h1>
+      <p class="lead">We combine compassionate care, evidence-informed practices, and whole-person perspective to help you feel calm, clear, and connected.</p>
+      <div class="grid">
+        <!-- Mission statement -->
+        <article class="card mission">
+          <h3>Our Mission</h3>
+          <p class="muted">
+            At <strong>Lumina Whole Health</strong>, we take a holistic approach to mental health—supporting mind, body, and environment. 
+            We blend proven therapies with lifestyle guidance, nervous-system education, and practical tools that fit real life.
+            Our goal is simple: help you build durable wellbeing, not just temporary relief.
+          </p>
+          <p class="muted">
+            Every person is different. We listen deeply, align care with your values, and illuminate a path that feels safe, effective, and sustainable.
+          </p>
+          <div style="margin-top:10px">
+            <span class="pill">Evidence-informed</span>
+            <span class="pill" style="margin-left:8px">Whole-person care</span>
+            <span class="pill" style="margin-left:8px">Warm & welcoming</span>
+          </div>
+        </article>
+
+        <!-- Friendly touch cards -->
+        <article class="card">
+          <h3>What to Expect</h3>
+          <p class="muted">Quiet, judgment-free space; thoughtful intake; clear next steps. You’ll leave each session with practical, doable tools.</p>
+        </article>
+        <article class="card">
+          <h3>How We Work</h3>
+          <p class="muted">Personalized plans that may integrate CBT and other modalities with sleep, stress, and routine support.</p>
+        </article>
+        <article class="card">
+          <h3>Who We Help</h3>
+          <p class="muted">Adults and teens seeking calmer nervous systems, stronger boundaries, and steadier daily life.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact / CTA -->
+    <section id="contact" class="grid" style="margin-top:36px">
+      <article class="card" style="grid-column: span 12">
+        <h3>Start with a friendly consult</h3>
+        <p class="muted">Tell us what you’re looking for—no pressure, just clarity.</p>
+        <!-- You can wire this to Formspree or another form later -->
+        <form action="#" method="post" onsubmit="alert('Thanks! Replace this with your form service when ready.'); return false;">
+          <div style="display:grid; gap:10px; grid-template-columns:repeat(12,1fr);">
+            <input name="name" placeholder="Name" required style="grid-column:span 6; padding:12px; border-radius:10px; border:1px solid #d8e4dc">
+            <input name="email" type="email" placeholder="Email" required style="grid-column:span 6; padding:12px; border-radius:10px; border:1px solid #d8e4dc">
+            <textarea name="message" placeholder="How can we help?" rows="4" required style="grid-column:span 12; padding:12px; border-radius:10px; border:1px solid #d8e4dc"></textarea>
+          </div>
+          <div style="margin-top:12px">
+            <button class="btn" type="submit">Send</button>
+          </div>
+        </form>
+      </article>
+    </section>
   </main>
-  <footer class="wrap"><small>© Lumina Whole Health</small></footer>
+
+  <footer>
+    <div class="container">
+      <small>© <span id="y"></span> Lumina Whole Health • All rights reserved</small>
+    </div>
+  </footer>
+
+  <script>
+    // Year + gentle focus style for keyboard users
+    document.getElementById('y').textContent = new Date().getFullYear();
+    document.addEventListener('keydown', e=>{
+      if(e.key==='Tab') document.body.classList.add('show-focus');
+    });
+  </script>
 </body>
 </html>
